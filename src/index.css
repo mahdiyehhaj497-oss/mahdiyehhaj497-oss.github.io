@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+
+@import "tailwindcss";
+
+/* فونت فارسی: Vazirmatn از پکیج npm نصب می‌شه (نه از اینترنت) */
+@import "@fontsource-variable/vazirmatn";
+@import "@fontsource-variable/inter";
+
+/* حالت تیره با کلاس .dark روی <html> فعال می‌شه */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Inter Variable", "Vazirmatn Variable", system-ui, sans-serif;
+  --font-fa: "Vazirmatn Variable", "Inter Variable", system-ui, sans-serif;
+
+  /* رنگ اصلی (teal) */
+  --color-accent: #0f766e;
+  --color-accent-dark: #2dd4bf;
+}
+
+html {
+  font-family: var(--font-sans);
+}
+
+/* وقتی زبان فارسیه، فونت فارسی اولویت داره */
+html[lang="fa"] {
+  font-family: var(--font-fa);
+}
+
+/* احترام به کاربرانی که انیمیشن کم می‌خوان */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
